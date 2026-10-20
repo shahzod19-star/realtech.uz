@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="realtech-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.35" />
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="url(#realtech-grad)" filter="url(#shadow)" />
+  <!-- Lightning bolt / battery symbol -->
+  <path d="M72 16 L32 72 L62 72 L54 112 L96 56 L66 56 Z" fill="#ffffff" />
+</svg>

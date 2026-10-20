@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealTech Uz — Gadjetlarning Real Vaqtdagi Ishlash va Batareya Tahlili Platformasi</title>
+  
+  <meta name="description" content="Gadjetlar qanday ishlashi, oddiy inson ishlatganda batareyasi aniq necha soatga yetishi va YouTube video taymkodli manbalari bilan to'liq tanishing.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="alternate icon" href="./favicon.svg">
+  <meta name="theme-color" content="#0ea5e9">
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="RealTech Uz, RealTech, iPhone batareya, iPhone 17 batareya testi, iPhone 18 Pro, Galaxy S25 Ultra, Galaxy S26 Ultra, Apple Watch Series 10 batareya, AirPods Pro 2, batareya kalkulyatori, ekran vaqti, SOT tahlil, gadjetlar sharhi O'zbekiston, YouTube drain test">
+  <meta name="author" content="RealTech Uz">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://realtech.uz/">
+
+  <!-- Open Graph / Facebook / Telegram / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://realtech.uz/">
+  <meta property="og:title" content="RealTech Uz — Gadjetlarning Real Vaqtdagi Ishlash va Batareya Tahlili">
+  <meta property="og:description" content="Kompaniyalarning reklama raqamlari emas, balki oddiy insonlar ishlatganda batareyasi aniq necha soatga yetishi va YouTube video manbalari konspekti.">
+  <meta property="og:image" content="https://realtech.uz/img/og-preview.svg">
+  <meta property="og:locale" content="uz_UZ">
+  <meta property="og:site_name" content="RealTech Uz">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://realtech.uz/">
+  <meta name="twitter:title" content="RealTech Uz — Gadjetlarning Real Vaqtdagi Ishlash va Batareya Tahlili">
+  <meta name="twitter:description" content="iPhone, Samsung, Apple Watch va AirPods'ning real batareya chidamliligi va YouTube drain testlari.">
+  <meta name="twitter:image" content="https://realtech.uz/img/og-preview.svg">
+
+  <!-- Google Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "RealTech Uz",
+    "url": "https://realtech.uz/",
+    "description": "Gadjetlarning kundalik real hayotdagi faol ekran vaqti (SOT), batareya tahlili va YouTube video manbalari platformasi.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen antialiased flex flex-col selection:bg-sky-500 selection:text-white transition-colors duration-300">
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 w-full glass-nav bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="zap" class="w-5 h-5 fill-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-black text-lg tracking-tight text-slate-900 dark:text-white">RealTech</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded font-bold bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300">UZ</span>
+          </div>
+          <p id="logoSubtitle" data-i18n="logoSubtitle" class="text-[10px] text-slate-500 dark:text-slate-400 font-medium -mt-1 hidden sm:block">Real batareya va xalqchil tahlil</p>
+        </div>
+      </a>
+
+      <!-- Quick Nav Links (Apple-style sleek pills) -->
+      <nav class="hidden md:flex items-center gap-1 p-1 bg-slate-100/80 dark:bg-slate-800/70 rounded-full border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
+        <a href="#katalog" class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span data-i18n="navCatalog">Katalog</span>
+        </a>
+        <a href="#calculatorSection" class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all flex items-center gap-1.5">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span data-i18n="navCalculator">Batareya Kalkulyatori</span>
+        </a>
+        <a href="#metodologiya" class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700 transition-all flex items-center gap-1.5">
+          <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i>
+          <span data-i18n="navMethodology">Metodologiya & Manbalar</span>
+        </a>
+      </nav>
+
+      <!-- Right Actions: Language Switcher, Compare Button & Theme Toggle -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        
+        <!-- Language Switcher: UZ / RU / EN -->
+        <div id="langSwitcherContainer" class="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl border border-slate-200/80 dark:border-slate-700 text-xs font-bold shadow-xs">
+          <button data-lang="uz" class="lang-btn px-2.5 py-1 rounded-lg transition-all bg-sky-600 text-white shadow-xs">UZ</button>
+          <button data-lang="ru" class="lang-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 transition-all">RU</button>
+          <button data-lang="en" class="lang-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 transition-all">EN</button>
+        </div>
+
+        <!-- Taqqoslash ochish tugmasi -->
+        <button 
+          id="openComparisonBtn" 
+          class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition"
+          title="Taqqoslash panelini ochish"
+        >
+          <i data-lucide="columns" class="w-4 h-4 text-sky-600 dark:text-sky-400"></i>
+          <span class="hidden sm:inline" data-i18n="navCompare">Taqqoslash</span>
+          <span id="compareBadgeCount" class="w-5 h-5 rounded-full bg-sky-600 text-white text-[10px] flex items-center justify-center font-bold">2</span>
+        </button>
+
+        <!-- Dark/Light rejim tugmasi -->
+        <button 
+          id="themeToggleBtn" 
+          class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center justify-center"
+          aria-label="Rejimni o'zgartirish"
+        >
+          <i data-lucide="moon" class="w-5 h-5 text-slate-600 dark:text-amber-400"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-10 pb-8 overflow-hidden border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Main Heading -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight mb-4">
+        <span data-i18n="heroTitlePart1">Gadjetlarning Real Ishlashi va</span> <br class="hidden sm:inline">
+        <span data-i18n="heroTitlePart2" class="bg-gradient-to-r from-sky-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent">
+          Haqiqiy Batareya Tahlili
+        </span>
+      </h1>
+
+      <!-- Description -->
+      <p data-i18n="heroDesc" class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-6 font-normal leading-relaxed">
+        Sotib olishdan oldin gadjet oddiy tilda qanday ishlashini o'rganing, rasmiy va'dalar emas, real hayotda zaryadi necha soatga yetishini ko'ring va YouTube taymkodli manbalar orqali tekshiring.
+      </p>
+
+      <!-- Smart Search Box -->
+      <div class="max-w-2xl mx-auto mb-6">
+        <div class="relative flex items-center">
+          <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Gadjet nomi yoki xususiyati (masalan: iPhone 15 Pro, S24 Ultra, iPad Pro, Series 10, AirPods)..." 
+            class="w-full pl-12 pr-12 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm sm:text-base text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all placeholder:text-slate-400"
+          >
+          <button id="clearSearchBtn" title="Qidiruvni tozalash" class="absolute right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hidden">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Category Filters -->
+      <div id="categoryFilters" class="flex flex-wrap items-center justify-center gap-2 mb-4">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+
+      <!-- Quick Tag Chips -->
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+        <span data-i18n="quickFilter" class="text-slate-400 dark:text-slate-500 font-medium">Tezkor filtr:</span>
+        <button data-tag="all" data-i18n="filterAll" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition cursor-pointer">
+          Hammasi
+        </button>
+        <button data-tag="brand-apple" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          🍎 Apple
+        </button>
+        <button data-tag="brand-samsung" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          📱 Samsung
+        </button>
+        <button data-tag="brand-xiaomi" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          ⚡ Xiaomi / Redmi
+        </button>
+        <button data-tag="brand-honor" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          💎 Honor & Huawei
+        </button>
+        <button data-tag="long-battery" data-i18n="filterLongBattery" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          🔋 1 kundan ko'p yetadi
+        </button>
+        <button data-tag="fast-charge" data-i18n="filterFastCharge" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          ⚡ Tez zaryad
+        </button>
+        <button data-tag="anc" data-i18n="filterAnc" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+          🎧 Shovqin so'ndirish (ANC)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CATALOG & GRID ==================== -->
+  <main id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
+    
+    <!-- Header with count & sort -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 data-i18n="catalogHeading" class="text-2xl font-bold text-slate-900 dark:text-white">Gadjetlar Katalogi</h2>
+        <p id="resultsCount" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Gadjetlar yuklanmoqda...</p>
+      </div>
+
+      <!-- Saralash (Sort) -->
+      <div class="flex items-center gap-2 text-xs">
+        <label for="sortBySelect" data-i18n="sortLabel" class="text-slate-500 font-medium">Saralash:</label>
+        <select id="sortBySelect" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
+          <option value="popular" data-i18n="sortPopular">Ommabop tavsiyalar</option>
+          <option value="battery-desc" data-i18n="sortBatteryDesc">Batareya chidamliligi (yuqoridan pastga)</option>
+          <option value="charge-asc" data-i18n="sortChargeAsc">Eng tez zaryadlanuvchi</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Device Grid Cards -->
+    <div id="deviceGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- JS orqali to'ldiriladi -->
+    </div>
+
+  </main>
+
+  <!-- ==================== INTERACTIVE BATTERY CALCULATOR ==================== -->
+  <section id="calculatorSection" class="bg-slate-100/70 dark:bg-slate-900/60 py-16 border-y border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-semibold mb-3">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Shaxsiy hisob-kitob vositasi</span>
+        </div>
+        <h2 data-i18n="calcHeading" class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          "Menga Zaryadi Qancha Yetadi?" Kalkulyatori
+        </h2>
+        <p data-i18n="calcSubheading" class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+          Kunlik foydalanish odatlaringizni slayderlar orqali ko'rsating. Sayt tanlangan gadjet sizga kun oxirigacha yetishi yoki qachon zaryad talab qilishini real-time hisoblab beradi.
+        </p>
+      </div>
+
+      <!-- Calculator Box -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Chap tomon: Parametrlar va Slayderlar (7 cols) -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+          
+          <div class="mb-6">
+            <label for="calcDeviceSelect" data-i18n="calcDeviceLabel" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+              Sinab ko'rish uchun gadjetni tanlang:
+            </label>
+            <select id="calcDeviceSelect" class="w-full p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500">
+              <!-- JS orqali to'ldiriladi -->
+            </select>
+          </div>
+
+          <!-- Dinamik slayderlar konteyneri -->
+          <div id="calculatorControls">
+            <!-- JS to'ldiradi -->
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Standart hisob: 08:00 dan boshlangan kun tartibi</span>
+            <span class="flex items-center gap-1">
+              <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              Real drain test koeffitsiyentlari
+            </span>
+          </div>
+
+        </div>
+
+        <!-- O'ng tomon: Natija va Dinamik Batareya Ko'rsatkichi (5 cols) -->
+        <div class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span data-i18n="calcResultLabel" class="text-xs font-bold uppercase tracking-wider text-slate-400">Hisoblangan Natija</span>
+              <span id="calcStatusBadge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                A'lo Zaxira
+              </span>
+            </div>
+
+            <!-- Katta foiz va Vizual progress -->
+            <div class="text-center py-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 mb-6">
+              <span data-i18n="calcExpectedAt23" class="text-xs text-slate-400 font-medium">Kechki soat 23:00 da kutilayotgan zaryad:</span>
+              <div class="flex items-center justify-center gap-2 mt-2">
+                <i data-lucide="battery" class="w-8 h-8 text-slate-700 dark:text-slate-300"></i>
+                <span id="calcResultPercent" class="text-5xl font-black text-slate-900 dark:text-white">25%</span>
+              </div>
+
+              <!-- Batareya vizual o'lchami -->
+              <div class="max-w-xs mx-auto mt-4 px-4">
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden p-0.5">
+                  <div id="calcResultBar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-300" style="width: 25%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Xulosa sarlavhasi va tushuntirish -->
+            <div class="space-y-3 mb-6">
+              <h4 id="calcVerdictTitle" class="text-base font-bold text-slate-900 dark:text-white">
+                A'lo darajadagi zaxira!
+              </h4>
+              <p id="calcVerdictDesc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Kechki 23:00 da taxminan 25% zaryad qoladi. Ertalabgacha xotirjam yurasiz.
+              </p>
+            </div>
+
+            <!-- Qo'shimcha ko'rsatkichlar -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
+                <span data-i18n="calcUntilWhen" class="text-[11px] text-slate-400 block">Qachongacha yetadi:</span>
+                <span id="calcShutdownEstimate" class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-0.5 block">Ertasi kuni 10:00 gacha</span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
+                <span data-i18n="calcTotalWorkload" class="text-[11px] text-slate-400 block">Jami faol yuklama:</span>
+                <span id="calcActiveHours" class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-0.5 block">7.0 soat faol ekran</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foydali maslahat -->
+          <div class="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 text-[11px] text-amber-900 dark:text-amber-300 flex items-start gap-2">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+            <span><strong data-i18n="calcTipTitle">Tejash siri:</strong> <span data-i18n="calcTipText">Agar zaryad kam qolayotgan bo'lsa, ekran yorug'ligini 40% ga tushirish va tejamkor rejimni yoqish qo'shimcha 1.5–2 soat vaqt beradi.</span></span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== METHODOLOGY & EDUCATION ==================== -->
+  <section id="metodologiya" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span data-i18n="methodologyBadge" class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Shaffoflik va Ilmiy Yondashuv</span>
+      <h2 data-i18n="methodologyHeading" class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">
+        Nega Rasmiy Va'dalar Bilan Real Hayot Farq Qiladi?
+      </h2>
+      <p data-i18n="methodologySubheading" class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+        Kompaniyalar (Apple, Samsung va boshqalar) nega 20-30 soat deb e'lon qiladi-yu, oddiy inson qo'lida 7-8 soatda tugaydi?
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-red-100 dark:bg-red-950/70 text-red-600 dark:text-red-400 flex items-center justify-center mb-4">
+          <i data-lucide="flask-conical" class="w-6 h-6"></i>
+        </div>
+        <h3 data-i18n="methodologyCard1Title" class="text-base font-bold text-slate-900 dark:text-white mb-2">1. Sintetik Laboratoriya Sinovi</h3>
+        <p data-i18n="methodologyCard1Desc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Ishlab chiqaruvchilar batareyani faqat ichki xotiradagi videoni samolyot (Airplane) rejimida, ekran yorug'ligini atigi 50% qilib, SIM-karta va ilovalar xabarnomasisiz o'lchaydilar.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-950/70 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
+          <i data-lucide="wifi" class="w-6 h-6"></i>
+        </div>
+        <h3 data-i18n="methodologyCard2Title" class="text-base font-bold text-slate-900 dark:text-white mb-2">2. Real Hayotdagi Yuklama</h3>
+        <p data-i18n="methodologyCard2Desc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Oddiy inson 4G/LTE tarmoqda, tashqarida quyosh tig'ida (ekran 100% yorug'likda), tinimsiz Telegram va Instagram xabarlarini qabul qilib, GPS navigatordan foydalanadi. Bu batareyani 2-3 baravar tezroq sarflaydi.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+          <i data-lucide="bot" class="w-6 h-6"></i>
+        </div>
+        <h3 data-i18n="methodologyCard3Title" class="text-base font-bold text-slate-900 dark:text-white mb-2">3. YouTube Robot Drain Sinovlari</h3>
+        <p data-i18n="methodologyCard3Desc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Bizning platformamiz PhoneBuff, Mrwhosetheboss kabi nufuzli blogerlarning maxsus robot qo'llari orqali xolis o'tkazilgan va yuzlab oddiy insonlar tajribasiga tayangan natijalarni jamlaydi.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-sky-600 flex items-center justify-center text-white">
+          <i data-lucide="zap" class="w-4 h-4 fill-white"></i>
+        </div>
+        <span class="font-bold text-sm text-slate-900 dark:text-white">RealTech Uz</span>
+        <span id="footerSubtitle" class="text-xs text-slate-400">— Gadjetlarning Haqiqiy Sinov Platformasi</span>
+      </div>
+
+      <p id="footerCopyright" data-i18n="footerText" class="text-xs text-slate-500 dark:text-slate-400 text-center sm:text-right">
+        Barcha testlar YouTube manbalari va haqiqiy foydalanish ma'lumotlariga asoslangan. &copy; 2024-2026.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTTOM COMPARISON FLOATING TRAY ==================== -->
+  <div id="comparisonTray" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 transition-transform duration-300 translate-y-24">
+    <div class="glass-card bg-slate-900/90 dark:bg-slate-800/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/80 flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <i data-lucide="columns" class="w-4 h-4 text-sky-400"></i>
+        <span class="text-xs font-semibold" data-i18n="navCompare">Taqqoslash:</span>
+      </div>
+
+      <div id="compareTrayList" class="flex items-center gap-2">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+
+      <button id="openComparisonBtnTray" class="px-3.5 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition">
+        Solishtirish
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== DEVICE DETAIL MODAL ==================== -->
+  <div id="deviceDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-3xl rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
+        <div>
+          <h3 id="modalDeviceName" class="text-xl font-bold text-slate-900 dark:text-white">Gadjet Nomi</h3>
+          <p id="modalDeviceSubtitle" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Kategoriya • Narxi</p>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Telegram Share -->
+          <button id="telegramShareBtn" title="Telegramda ulashish" class="p-2 rounded-xl text-sky-500 hover:text-white hover:bg-sky-500 dark:hover:bg-sky-600 transition cursor-pointer">
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+          <!-- WhatsApp Share -->
+          <button id="whatsappShareBtn" title="WhatsAppda ulashish" class="p-2 rounded-xl text-emerald-500 hover:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 transition cursor-pointer">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          </button>
+          <!-- Copy Link -->
+          <button id="shareModalBtn" title="Havolani nusxalash" class="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
+            <i data-lucide="share-2" class="w-4 h-4"></i>
+          </button>
+          <!-- Close -->
+          <button class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Tabs Navigation -->
+      <div class="px-6 pt-3 pb-2 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2 overflow-x-auto">
+        <button data-tab="features" data-i18n="tabFeatures" class="modal-tab-btn px-4 py-2 font-bold text-xs sm:text-sm rounded-xl bg-sky-600 text-white shadow-sm transition cursor-pointer">
+          Qanday ishlaydi & Funksiyalar
+        </button>
+        <button data-tab="battery" data-i18n="tabBattery" class="modal-tab-btn px-4 py-2 font-semibold text-xs sm:text-sm rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
+          Real-Time Batareya Testi
+        </button>
+        <button data-tab="sources" data-i18n="tabSources" class="modal-tab-btn px-4 py-2 font-semibold text-xs sm:text-sm rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
+          YouTube va Yozma Manbalar
+        </button>
+      </div>
+
+      <!-- Modal Scrollable Content Area -->
+      <div id="modalTabContent" class="p-6 overflow-y-auto flex-1 text-sm">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between">
+        <button data-i18n="btnClose" class="modal-close-btn px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-800 transition cursor-pointer">
+          Yopish
+        </button>
+        <button id="modalToCalculatorBtn" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span data-i18n="btnModalCalc">Ushbu gadjetni Kalkulyatorda hisoblash</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== REQUEST MODEL MODAL ==================== -->
+  <div id="requestModelModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col p-6">
+      
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">Yangi Gadjet So'rash</h3>
+        </div>
+        <button id="closeRequestModalBtn" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+        Qidirgan modelingiz topilmadimi? Model nomini yozib qoldiring. Mutaxassislarimiz YouTube testlarini tahlil qilib, platformaga kiritadi va Telegram orqali xabar beramiz.
+      </p>
+
+      <form id="requestModelForm" class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Gadjet modeli:</label>
+          <input 
+            type="text" 
+            id="requestModelInput" 
+            required 
+            placeholder="Masalan: Xiaomi 15 Ultra, Pixel 9 Pro..."
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Telegram profilingiz yoki telefon (ixtiyoriy):</label>
+          <input 
+            type="text" 
+            id="requestContactInput" 
+            placeholder="@username yoki +99890..."
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+        </div>
+
+        <button 
+          type="submit" 
+          id="submitRequestBtn"
+          class="w-full py-2.5 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 cursor-pointer mt-2"
+        >
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>So'rovni Yuborish</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== COMPARISON FULL MODAL ==================== -->
+  <div id="comparisonModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-5xl rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      
+      <!-- Comparison Header -->
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+        <div>
+          <h3 data-i18n="compareModalTitle" class="text-xl font-bold text-slate-900 dark:text-white">Yonma-yon Solishtirish (Comparison Tool)</h3>
+          <p data-i18n="compareModalSubtitle" class="text-xs text-slate-500 mt-0.5">Haqiqiy batareya vaqti, zaryadlash tezligi va imkoniyatlar farqi</p>
+        </div>
+
+        <button id="closeComparisonModalBtn" class="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Comparison Content Body -->
+      <div id="comparisonModalBody" class="p-6 overflow-y-auto flex-1">
+        <!-- JS to'ldiradi -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript App (Cache-busting v=5.3) -->
+  <script type="module" src="./js/app.js?v=5.3"></script>
+</body>
+</html>
