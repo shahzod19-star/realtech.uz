@@ -52,6 +52,11 @@
   }
   </script>
 
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -59,6 +64,9 @@
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
           colors: {
             brand: {
               50: '#f0f9ff',
@@ -78,28 +86,90 @@
 
   <!-- Custom CSS -->
   <style>
-/* RealTech Uz — Maxsus dizayn va animatsiyalar */
+/* RealTech Uz — 2026 Modern Design System (Apple / Linear / Vercel Aesthetic) */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
   }
 }
 
-/* Glassmorphism */
+/* Ambient Hero Gradient Mesh */
+.hero-mesh {
+  background-image: 
+    radial-gradient(at 15% 10%, rgba(14, 165, 233, 0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(99, 102, 241, 0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 60%, rgba(16, 185, 129, 0.06) 0px, transparent 60%);
+}
+
+.dark .hero-mesh {
+  background-image: 
+    radial-gradient(at 20% 0%, rgba(14, 165, 233, 0.22) 0px, transparent 60%),
+    radial-gradient(at 80% 10%, rgba(99, 102, 241, 0.18) 0px, transparent 60%),
+    radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.08) 0px, transparent 65%);
+}
+
+/* Glassmorphism & Liquid Materials */
 .glass-nav {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-.glass-card {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-/* Apple uslubidagi maxsus slayder (range input) */
+.dark .glass-pill {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(51, 65, 85, 0.7);
+}
+
+.glass-card {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Product Halo Stage Effect */
+.product-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.product-stage::before {
+  content: '';
+  position: absolute;
+  inset: 15% 20%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0) 70%);
+  filter: blur(24px);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.dark .product-stage::before {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.20) 0%, rgba(56, 189, 248, 0) 70%);
+}
+
+.group:hover .product-stage::before {
+  transform: scale(1.25);
+  opacity: 1;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, rgba(14, 165, 233, 0) 70%);
+}
+
+.dark .group:hover .product-stage::before {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(56, 189, 248, 0) 70%);
+}
+
+/* Apple-style Smooth Range Input (Slider) */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -129,26 +199,36 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   border-radius: 50%;
   background: #0284c7;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .dark input[type="range"]::-webkit-slider-thumb {
   background: #38bdf8;
   border-color: #0f172a;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.45);
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.5);
 }
 
 input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(0.95);
 }
 
-/* Custom scrollbars */
+/* Smooth Transitions & Micro-interactions */
+.transition-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.transition-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -171,28 +251,41 @@ input[type="range"]::-webkit-slider-thumb:active {
   background: #94a3b8;
 }
 
-/* Smooth transitions */
-.transition-card {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+/* Subtle Shimmer & Pulse Animations */
+@keyframes beacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
 }
 
-.transition-card:hover {
-  transform: translateY(-4px);
+.animate-beacon {
+  animation: beacon 2s ease-in-out infinite;
 }
 
-/* Pulse animation for battery */
 @keyframes pulse-subtle {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.02); }
+  50% { opacity: 0.88; transform: scale(1.02); }
 }
 
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
 }
 
+/* Category segmented dock styling */
+.category-dock {
+  background: rgba(241, 245, 249, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .category-dock {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
 </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen antialiased flex flex-col selection:bg-sky-500 selection:text-white transition-colors duration-300">
+<body class="bg-slate-50 text-slate-800 dark:bg-[#090d16] dark:text-slate-100 min-h-screen antialiased flex flex-col selection:bg-sky-500 selection:text-white transition-colors duration-300">
 
   <!-- ==================== HEADER / NAVBAR ==================== -->
   <header class="sticky top-0 z-40 w-full glass-nav bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-md">
@@ -262,71 +355,129 @@ input[type="range"]::-webkit-slider-thumb:active {
     </div>
   </header>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section class="relative pt-10 pb-8 overflow-hidden border-b border-slate-200/60 dark:border-slate-800/60">
+  <!-- ==================== HERO SECTION (Apple / Linear Aesthetic) ==================== -->
+  <section class="hero-mesh relative pt-12 pb-12 overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
+      <!-- Top Announcement Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-700/80 text-sky-700 dark:text-sky-300 text-xs font-bold mb-5 shadow-xs backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-beacon"></span>
+        <span class="tracking-tight">2026 Mustaqil Real-World Sinovlar • 42 ta Gadjet • 100% Video Isboti</span>
+      </div>
+
       <!-- Main Heading -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-tight mb-4">
-        <span data-i18n="heroTitlePart1">Gadjetlarning Real Ishlashi va</span> <br class="hidden sm:inline">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-[1.12] mb-4">
+        <span data-i18n="heroTitlePart1">Gadjetlarning Real Quvvati va</span> <br class="hidden sm:inline">
         <span data-i18n="heroTitlePart2" class="bg-gradient-to-r from-sky-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent">
           Haqiqiy Batareya Tahlili
         </span>
       </h1>
 
       <!-- Description -->
-      <p data-i18n="heroDesc" class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-6 font-normal leading-relaxed">
+      <p data-i18n="heroDesc" class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-7 font-normal leading-relaxed">
         Sotib olishdan oldin gadjet oddiy tilda qanday ishlashini o'rganing, rasmiy va'dalar emas, real hayotda zaryadi necha soatga yetishini ko'ring va YouTube taymkodli manbalar orqali tekshiring.
       </p>
 
-      <!-- Smart Search Box -->
+      <!-- Spotlight Floating Search Box -->
       <div class="max-w-2xl mx-auto mb-6">
-        <div class="relative flex items-center">
-          <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none"></i>
+        <div class="relative flex items-center group">
+          <div class="absolute left-4.5 flex items-center pointer-events-none text-sky-600 dark:text-sky-400">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </div>
           <input 
             type="text" 
             id="searchInput" 
-            placeholder="Gadjet nomi yoki xususiyati (masalan: iPhone 15 Pro, S24 Ultra, iPad Pro, Series 10, AirPods)..." 
-            class="w-full pl-12 pr-12 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm sm:text-base text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all placeholder:text-slate-400"
+            placeholder="Gadjet nomi yoki xususiyati (masalan: iPhone 18 Pro, S26 Ultra, iPad Pro, Watch 10)..." 
+            class="w-full pl-12 pr-24 py-4 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/80 text-sm sm:text-base text-slate-900 dark:text-white shadow-xl shadow-slate-200/40 dark:shadow-none focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all placeholder:text-slate-400 font-medium"
           >
-          <button id="clearSearchBtn" title="Qidiruvni tozalash" class="absolute right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hidden">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
+          <div class="absolute right-3.5 flex items-center gap-1.5">
+            <button id="clearSearchBtn" title="Qidiruvni tozalash" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hidden cursor-pointer">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <span class="hidden sm:inline-flex items-center px-2 py-0.5 text-[11px] font-semibold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-md border border-slate-200/60 dark:border-slate-700/60">
+              /
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- Live Category Filters -->
-      <div id="categoryFilters" class="flex flex-wrap items-center justify-center gap-2 mb-4">
-        <!-- JS orqali to'ldiriladi -->
+      <!-- Live Category Segmented Dock -->
+      <div class="flex justify-center mb-5">
+        <div id="categoryFilters" class="category-dock p-1.5 rounded-2xl inline-flex flex-wrap items-center justify-center gap-1.5 shadow-xs">
+          <!-- JS orqali to'ldiriladi -->
+        </div>
       </div>
 
       <!-- Quick Tag Chips -->
-      <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
-        <span data-i18n="quickFilter" class="text-slate-400 dark:text-slate-500 font-medium">Tezkor filtr:</span>
-        <button data-tag="all" data-i18n="filterAll" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition cursor-pointer">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs max-w-3xl mx-auto mb-8">
+        <span data-i18n="quickFilter" class="text-slate-400 dark:text-slate-500 font-semibold mr-1">Tezkor:</span>
+        <button data-tag="all" data-i18n="filterAll" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition cursor-pointer shadow-xs">
           Hammasi
         </button>
-        <button data-tag="brand-apple" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="brand-apple" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           🍎 Apple
         </button>
-        <button data-tag="brand-samsung" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="brand-samsung" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           📱 Samsung
         </button>
-        <button data-tag="brand-xiaomi" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="brand-xiaomi" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           ⚡ Xiaomi / Redmi
         </button>
-        <button data-tag="brand-honor" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="brand-honor" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           💎 Honor & Huawei
         </button>
-        <button data-tag="long-battery" data-i18n="filterLongBattery" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="long-battery" data-i18n="filterLongBattery" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-emerald-500 transition cursor-pointer">
           🔋 1 kundan ko'p yetadi
         </button>
-        <button data-tag="fast-charge" data-i18n="filterFastCharge" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="fast-charge" data-i18n="filterFastCharge" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           ⚡ Tez zaryad
         </button>
-        <button data-tag="anc" data-i18n="filterAnc" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer">
+        <button data-tag="anc" data-i18n="filterAnc" class="tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer">
           🎧 Shovqin so'ndirish (ANC)
         </button>
+      </div>
+
+      <!-- Trust & Key Metrics Ticker -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-5 border-t border-slate-200/70 dark:border-slate-800/70">
+        <div class="flex items-center justify-center gap-2.5 p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 backdrop-blur-sm">
+          <div class="w-8 h-8 rounded-xl bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-600 dark:text-sky-400 shrink-0">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-black text-slate-900 dark:text-white">42+ Gadjet</div>
+            <div class="text-[10px] text-slate-400 font-medium">Barcha ommabop modellar</div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-2.5 p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 backdrop-blur-sm">
+          <div class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <i data-lucide="battery-charging" class="w-4 h-4"></i>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-black text-slate-900 dark:text-white">Real SOT Sinovi</div>
+            <div class="text-[10px] text-slate-400 font-medium">Faol ekran vaqti</div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-2.5 p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 backdrop-blur-sm">
+          <div class="w-8 h-8 rounded-xl bg-rose-100 dark:bg-rose-950 flex items-center justify-center text-rose-600 dark:text-rose-400 shrink-0">
+            <i data-lucide="youtube" class="w-4 h-4"></i>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-black text-slate-900 dark:text-white">100% Video Isbot</div>
+            <div class="text-[10px] text-slate-400 font-medium">Taymkodli manbalar</div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-2.5 p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 backdrop-blur-sm">
+          <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+            <i data-lucide="calculator" class="w-4 h-4"></i>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-black text-slate-900 dark:text-white">1-Soniyali Hisob</div>
+            <div class="text-[10px] text-slate-400 font-medium">Shaxsiy odatingiz bo'yicha</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -536,20 +687,23 @@ input[type="range"]::-webkit-slider-thumb:active {
     </div>
   </footer>
 
-  <!-- ==================== BOTTOM COMPARISON FLOATING TRAY ==================== -->
-  <div id="comparisonTray" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 transition-transform duration-300 translate-y-24">
-    <div class="glass-card bg-slate-900/90 dark:bg-slate-800/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/80 flex items-center gap-4">
-      <div class="flex items-center gap-2">
-        <i data-lucide="columns" class="w-4 h-4 text-sky-400"></i>
-        <span class="text-xs font-semibold" data-i18n="navCompare">Taqqoslash:</span>
+  <!-- ==================== BOTTOM COMPARISON FLOATING TRAY (iOS Dynamic Island Style) ==================== -->
+  <div id="comparisonTray" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-300 translate-y-32">
+    <div class="glass-card bg-slate-950/85 dark:bg-slate-900/90 text-white px-5 py-2.5 rounded-full shadow-2xl border border-sky-500/30 backdrop-blur-2xl flex items-center gap-3.5 hover:border-sky-500/60 transition-colors">
+      <div class="flex items-center gap-2 pr-2 border-r border-slate-700/60">
+        <div class="w-6 h-6 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center">
+          <i data-lucide="columns" class="w-3.5 h-3.5"></i>
+        </div>
+        <span class="text-xs font-bold tracking-tight" data-i18n="navCompare">Taqqoslash:</span>
       </div>
 
       <div id="compareTrayList" class="flex items-center gap-2">
         <!-- JS orqali to'ldiriladi -->
       </div>
 
-      <button id="openComparisonBtnTray" class="px-3.5 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition">
-        Solishtirish
+      <button id="openComparisonBtnTray" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 hover:from-sky-400 hover:to-teal-300 text-slate-950 text-xs font-black transition-transform hover:scale-105 shadow-md shadow-sky-500/25 flex items-center gap-1.5 cursor-pointer">
+        <span>Solishtirish</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
       </button>
     </div>
   </div>
@@ -4300,10 +4454,10 @@ function renderCategories() {
     return `
       <button 
         data-cat-id="${cat.id}"
-        class="category-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 cursor-pointer ${
+        class="category-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
           isActive 
-            ? 'bg-sky-600 text-white shadow-md shadow-sky-500/20 dark:bg-sky-500' 
-            : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
+            ? 'bg-sky-600 dark:bg-sky-500 text-white shadow-md shadow-sky-500/25 scale-102' 
+            : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/70'
         }"
       >
         <i data-lucide="${cat.icon}" class="w-4 h-4"></i>
@@ -4567,11 +4721,11 @@ function renderDeviceGrid() {
     const realHours = device.battery.realWorldActiveHours;
     const officialHours = device.battery.officialClaimHours;
 
-    let badgeColor = "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/50 dark:text-sky-300 dark:border-sky-800";
+    let badgeColor = "bg-sky-50 text-sky-700 border-sky-200/80 dark:bg-sky-950/60 dark:text-sky-300 dark:border-sky-800/80";
     if (device.badgeType === "best") {
-      badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800";
+      badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200/80 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800/80";
     } else if (device.badgeType === "beast") {
-      badgeColor = "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800";
+      badgeColor = "bg-amber-50 text-amber-700 border-amber-200/80 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800/80";
     }
 
     let catIcon = "smartphone";
@@ -4586,16 +4740,17 @@ function renderDeviceGrid() {
       : t.btnCompareAdd;
 
     return `
-      <div class="transition-card group relative bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl flex flex-col justify-between">
+      <div class="transition-card group relative bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/90 rounded-3xl p-5 shadow-sm hover:shadow-2xl hover:shadow-sky-500/10 hover:border-sky-500/40 flex flex-col justify-between overflow-hidden">
         
         <div>
+          <!-- Card Header: Category & Compare Button -->
           <div class="flex items-start justify-between gap-2 mb-3">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300">
                 <i data-lucide="${catIcon}" class="w-3.5 h-3.5"></i>
                 ${catLabel}
               </span>
-              <span class="inline-flex items-center text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeColor}">
+              <span class="inline-flex items-center text-[10px] font-extrabold px-2 py-0.5 rounded-full border ${badgeColor}">
                 ${device.badge}
               </span>
             </div>
@@ -4604,83 +4759,102 @@ function renderDeviceGrid() {
             <button 
               data-compare-id="${device.id}" 
               title="${compareTooltip}"
-              class="compare-toggle-btn p-2 rounded-xl transition-all cursor-pointer ${
+              class="compare-toggle-btn w-8 h-8 rounded-full transition-all flex items-center justify-center cursor-pointer shrink-0 ${
                 isCompared 
-                  ? 'bg-sky-100 text-sky-600 dark:bg-sky-950 dark:text-sky-400 ring-2 ring-sky-500' 
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+                  ? 'bg-sky-600 text-white shadow-md shadow-sky-500/30 ring-2 ring-sky-400' 
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700'
               }"
             >
               <i data-lucide="${isCompared ? 'check' : 'plus'}" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <!-- Gadjet Rasmi Bloki -->
-          <div class="w-full h-40 mb-4 rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/70 dark:from-slate-800/50 dark:to-slate-800/20 flex items-center justify-center p-3 overflow-hidden border border-slate-100 dark:border-slate-800/80 group-hover:border-sky-500/20 transition-all">
+          <!-- Gadjet Rasmi Studiya Pog'onasi (Product Stage with Halo) -->
+          <div class="product-stage w-full h-52 mb-4 rounded-2xl bg-gradient-to-b from-slate-50/90 to-slate-100/50 dark:from-slate-800/30 dark:to-slate-900/40 flex items-center justify-center p-3 overflow-hidden border border-slate-100 dark:border-slate-800/80 group-hover:border-sky-500/30 transition-all relative">
             <img 
               src="${device.imageUrl || ''}" 
               alt="${device.name}" 
               loading="lazy" 
-              class="max-h-32 w-auto max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+              class="relative z-10 max-h-44 w-auto max-w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.14)] group-hover:scale-108 transition-transform duration-500 ease-out"
               onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
             />
-            <div class="hidden flex-col items-center justify-center text-slate-400">
-              <i data-lucide="${catIcon}" class="w-10 h-10 mb-1 opacity-50"></i>
+            <div class="hidden flex-col items-center justify-center text-slate-400 relative z-10">
+              <i data-lucide="${catIcon}" class="w-12 h-12 mb-1 opacity-50"></i>
               <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">${device.brand}</span>
             </div>
           </div>
 
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
-            ${device.name}
-          </h3>
-          <p class="text-xs text-slate-400 dark:text-slate-500 mb-2">
-            ${state.lang === 'ru' ? 'Выпуск:' : state.lang === 'en' ? 'Released:' : 'Chiqarilgan:'} ${device.releaseYear} • ${state.lang === 'ru' ? 'Цена:' : state.lang === 'en' ? 'Price:' : 'Narxi:'} ~${device.priceEstimate}
-          </p>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
+          <!-- Nomi va Narxi -->
+          <div class="mb-2">
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors tracking-tight leading-snug">
+              ${device.name}
+            </h3>
+            <div class="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500 font-semibold mt-1">
+              <span>${state.lang === 'ru' ? 'Выпуск:' : state.lang === 'en' ? 'Released:' : 'Yili:'} ${device.releaseYear}</span>
+              <span>•</span>
+              <span class="text-slate-700 dark:text-slate-300 font-bold">${device.priceEstimate}</span>
+            </div>
+          </div>
+
+          <!-- Qisqa tavsif -->
+          <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed font-normal">
             ${device.shortSummary}
           </p>
 
-          <!-- Batareya solishtirish bloki -->
-          <div class="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-4 mb-4 border border-slate-100 dark:border-slate-800">
+          <!-- Batareya Kokpiti Bloki (Battery Dashboard Box) -->
+          <div class="bg-gradient-to-br from-slate-50/90 to-slate-100/60 dark:from-slate-800/60 dark:to-slate-900/60 rounded-2xl p-3.5 mb-4 border border-slate-200/70 dark:border-slate-700/60">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                <i data-lucide="battery-charging" class="w-4 h-4 text-emerald-500"></i>
-                ${t.realUsage}
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-500 fill-emerald-500"></i>
+                <span>${t.realUsage}</span>
               </span>
-              <span class="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
+              <span class="text-sm font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                 ${device.battery.realWorldRange}
               </span>
             </div>
 
-            <div class="space-y-1.5 mb-2">
-              <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden flex">
-                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: ${Math.min(100, (realHours / 12) * 100)}%"></div>
+            <!-- Glowing Liquid Progress Bar -->
+            <div class="w-full bg-slate-200/80 dark:bg-slate-700/80 h-2.5 rounded-full overflow-hidden p-0.5 mb-2.5">
+              <div class="bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-400 h-full rounded-full transition-all duration-700 shadow-xs" style="width: ${Math.min(100, (realHours / 12) * 100)}%"></div>
+            </div>
+
+            <!-- Kontrast: Reklama vs Real hayot -->
+            <div class="grid grid-cols-2 gap-2 text-[11px] pt-2 border-t border-slate-200/60 dark:border-slate-700/60 font-medium">
+              <div>
+                <span class="text-slate-400 text-[10px] block">Rasmiy reklama:</span>
+                <span class="font-bold text-slate-700 dark:text-slate-300">${officialHours} soat ❌</span>
               </div>
-              <div class="flex justify-between items-center text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                <span>${t.officialPromise} <strong class="text-slate-700 dark:text-slate-300 font-bold">${officialHours} ${state.lang === 'en' ? 'hrs' : state.lang === 'ru' ? 'ч' : 'soat'}</strong></span>
-                <span>${t.zeroToEighty} <strong class="text-sky-600 dark:text-sky-400 font-bold">${device.battery.chargingZeroToEightyMins} ${state.lang === 'en' ? 'min' : state.lang === 'ru' ? 'мин' : 'daq'}</strong></span>
+              <div>
+                <span class="text-slate-400 text-[10px] block">0-80% tez zaryad:</span>
+                <span class="font-bold text-sky-600 dark:text-sky-400">⚡ ${device.battery.chargingZeroToEightyMins} daq</span>
               </div>
             </div>
 
-            <div class="text-[11px] text-slate-400 flex items-center gap-1 pt-1.5 border-t border-slate-200/50 dark:border-slate-700/50">
-              <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i>
-              <span>${device.sources?.length || 2} ${t.sourcesCountText}</span>
+            <!-- YouTube Video Isboti -->
+            <div class="text-[10px] text-slate-400 font-medium flex items-center justify-between mt-2 pt-2 border-t border-slate-200/40 dark:border-slate-700/40">
+              <span class="flex items-center gap-1 text-rose-500 dark:text-rose-400 font-bold">
+                <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+                <span>${device.battery?.youtubeDrainTest?.channel || 'YouTube'}</span>
+              </span>
+              <span>${device.sources?.length || 2} ta video isboti</span>
             </div>
           </div>
         </div>
 
         <!-- Tugmalar: Batafsil va Kalkulyatorda hisoblash -->
-        <div class="grid grid-cols-2 gap-2 pt-2">
+        <div class="grid grid-cols-2 gap-2 pt-1">
           <button 
             data-detail-id="${device.id}" 
-            class="detail-open-btn py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
+            class="detail-open-btn py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm group/btn cursor-pointer"
           >
             <i data-lucide="info" class="w-3.5 h-3.5"></i>
             <span>${t.btnDetails}</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover/btn:translate-x-1 transition-transform"></i>
           </button>
 
           <button 
             data-calc-id="${device.id}" 
-            class="calc-select-btn py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-md shadow-sky-600/20 cursor-pointer"
+            class="calc-select-btn py-2.5 px-3 rounded-xl bg-sky-50 dark:bg-sky-950/60 hover:bg-sky-100 dark:hover:bg-sky-900/80 text-sky-700 dark:text-sky-300 text-xs font-bold transition flex items-center justify-center gap-1.5 border border-sky-200/60 dark:border-sky-800/60 cursor-pointer"
           >
             <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
             <span>${t.btnCalculate}</span>
@@ -5285,16 +5459,18 @@ function renderComparisonTray() {
   }
 
   if (devices.length === 0) {
-    tray.classList.add('translate-y-24');
+    tray.classList.add('translate-y-32', 'opacity-0');
+    tray.classList.remove('translate-y-0', 'opacity-100');
     return;
   }
 
-  tray.classList.remove('translate-y-24');
+  tray.classList.remove('translate-y-32', 'opacity-0');
+  tray.classList.add('translate-y-0', 'opacity-100');
 
   listEl.innerHTML = devices.map(d => `
-    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-slate-200 border border-slate-700">
-      <span>${d.shortName || d.name}</span>
-      <button data-remove-compare="${d.id}" class="text-slate-400 hover:text-red-400 cursor-pointer">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 text-xs text-white border border-slate-700/80 shadow-xs">
+      <span class="font-bold">${d.shortName || d.name}</span>
+      <button data-remove-compare="${d.id}" class="text-slate-400 hover:text-rose-400 cursor-pointer p-0.5 rounded-full hover:bg-slate-700 transition" title="Olib tashlash">
         <i data-lucide="x" class="w-3.5 h-3.5"></i>
       </button>
     </span>
@@ -5521,9 +5697,9 @@ function setupEventListeners() {
       state.activeTag = tag;
       document.querySelectorAll('.tag-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-tag') === tag) {
-          btn.className = "tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition cursor-pointer";
+          btn.className = "tag-filter-btn px-3 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900 transition cursor-pointer shadow-xs";
         } else {
-          btn.className = "tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 hover:bg-slate-200 transition cursor-pointer";
+          btn.className = "tag-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 hover:border-sky-500 transition cursor-pointer";
         }
       });
       renderDeviceGrid();
